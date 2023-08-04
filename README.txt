@@ -1,7 +1,7 @@
 Proyecto: Evaluación Final del Módulo 6 - Desarrollo de aplicaciones JEE con SpringFramework
 
 Equipo de Desarrollo:
-- Gabriel Muñoz / 
+- Gabriel Muñoz / https://github.com/soyunmate/SprintM6-AwakeLab
 - Juan Romero / 
 - Fabian Ugalde / 
 - Marcelo Aceituno /
