@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Error</title>
+
+  <style>
+        body {
+            background-image: url("https://images.pexels.com/photos/4439425/pexels-photo-4439425.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Error</h1>
+<div th:if="${errorMessage}">
+  <p th:text="${errorMessage}"></p>
+</div>
+<div th:if="${errorStatus}">
+  <p>Status: <span th:text="${errorStatus}"></span></p>
+</div>
+
+<h2>Lo siento diego, no hubo tiempo de hacer algo mas bonito :(</h2>
+</body>
+</html>

@@ -59,7 +59,7 @@
         <div>
 
 
-            <div class="dropstart">
+            <div class="dropstart d-none">
 
 
                 <a class="navbar-brand dropdown-toggle" href="#"
@@ -109,16 +109,12 @@
 </nav>
 
 <div th:fragment="offcanvas" class="offcanvas offcanvas-start text-bg-dark bg-image" tabindex="-1" id="menu-desplegable" aria-labelledby="menu-desplegable-Label"
-     style="
-    	background-image: url('${pageContext.request.contextPath}/css/img/offcanvasimg3.jpeg');
-    	background-position: center;
-		background-size: cover;
-    	height: 100vh;
-  		"
+     th:style="'background-image: url(https://images.pexels.com/photos/6300105/pexels-photo-6300105.jpeg); background-position: center; background-size: cover; height: 100vh;'"
+
 >
     <div class="offcanvas-header text-center">
         <h5 class="offcanvas-title" id="menu-desplegable-Label">Menu Principal: </h5>
-        <h5 class="var-tipoUsuario mt-2" id="tipoUsuario"> serverAdmin
+        <h5 class="var-tipoUsuario mt-2 d-none" id="tipoUsuario"> serverAdmin
 
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -147,7 +143,7 @@
             </ul>
         </div>
 
-        <div class="dropdown pt-4 prof-view">
+        <div class="dropdown pt-4 prof-view d-none">
             <button class="btn btn-dark border border-light dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Administrar Asesorias
             </button>
@@ -157,7 +153,7 @@
             </ul>
         </div>
 
-        <div class="dropdown pt-4 client-view">
+        <div class="dropdown pt-4 client-view d-none">
             <button class="btn btn-dark border border-light dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Administrar Asistentes
             </button>
@@ -187,7 +183,7 @@
             </ul>
         </div>
 
-        <div class="dropdown pt-4 admin-view">
+        <div class="dropdown pt-4 admin-view d-none">
             <button class="btn btn-dark border border-light dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Administrar Chequeos
             </button>
@@ -197,7 +193,7 @@
             </ul>
         </div>
 
-        <div class="dropdown pt-4 client-view">
+        <div class="dropdown pt-4 client-view d-none">
             <button class="btn btn-dark border border-light dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Administrar Accidentes
             </button>
