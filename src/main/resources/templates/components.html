@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Asesorias S.A - HomePage</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css" />
+    <script th:src="@{/scripts/script.js}" defer="defer" type="text/javascript"></script>
+
+</head>
+<body>
+
+<nav th:fragment="navbar"
+        class="navbar navbar-expand-lg navbar-dark  border-bottom border-light"
+        style="background-color: black"
+>
+    <div class="container-fluid justify-content-between mx-3">
+        <a class="navbar-brand" th:href="@{/home}">
+            <i class="bi bi-box-fill fs-2"></i>
+        </a>
+        <button
+                class="navbar-toggler position-absolute end-0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav container justify-content-center">
+                <a class="nav-link active" aria-current="page" th:href="@{/home}"
+                >Inicio</a
+                >
+
+
+                <a class="nav-link btn-menu-principal" href="#menu-desplegable" data-bs-toggle="offcanvas" aria-controls="menu-desplegable">Menu Principal</a>
+
+
+
+
+
+
+
+                <a class="nav-link" th:href="@{/contacto}" >Contacto</a>
+
+
+
+
+                <a class="nav-link" th:href="@{/login}">Login</a>
+
+
+            </div>
+        </div>
+        <div>
+
+
+            <div class="dropstart">
+
+
+                <a class="navbar-brand dropdown-toggle" href="#"
+                   data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"
+                   data-bs-offset="100,100"
+
+                >
+                    <i class="bi bi-person-circle fs-3 contactIcons"></i>
+                </a>
+
+                <form action="Login" method="post" class="dropdown-menu p-4 dropdown-menu-end dropdown-menu-lg-start" data-bs-theme="dark">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label fw-bold">Usuario</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                name="nombre"
+                                placeholder="Nombre de usuario"
+                                required
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-bold">Contraseña</label>
+                        <input
+                                type="password"
+                                class="form-control"
+                                name="password"
+                                placeholder="Ingrese su contraseña"
+                                required
+                        />
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-dark border border-light col-4">Entrar</button>
+                    </div>
+                </form>
+            </div>
+
+
+
+            <a class="navbar-brand" th:href="@{/logout}">
+              <i class="bi bi-box-arrow-right fs-3 contactIcons"></i>
+            </a>
+
+
+        </div>
+    </div>
+</nav>
+
+<div th:fragment="offcanvas" class="offcanvas offcanvas-start text-bg-dark bg-image" tabindex="-1" id="menu-desplegable" aria-labelledby="menu-desplegable-Label"
+     style="
+    	background-image: url('${pageContext.request.contextPath}/css/img/offcanvasimg3.jpeg');
+    	background-position: center;
+		background-size: cover;
+    	height: 100vh;
+  		"
+>
+    <div class="offcanvas-header text-center">
+        <h5 class="offcanvas-title" id="menu-desplegable-Label">Menu Principal: </h5>
+        <h5 class="var-tipoUsuario mt-2" id="tipoUsuario"> serverAdmin
+
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body text-center">
+
+        <div class="dropdown admin-view">
+            <button class="btn btn-dark border border-light dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrar Usuarios
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" th:href="@{/usuarios/crear}">Registrar Usuarios</a></li>
+                <li><a class="dropdown-item" th:href="@{/usuarios/listar}">Lista Usuarios</a></li>
+
+            </ul>
+        </div>
+
+        <div class="dropdown pt-4 client-view">
+            <button class="btn btn-dark border border-light  dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrar Capacitaciones
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" th:href="@{/capacitacion/crear}">Crear Capacitacion</a></li>
+                <li><a class="dropdown-item" th:href="@{/capacitacion/listar}">Listar Capacitacion</a></li>
+
+            </ul>
+        </div>
+
+        <div class="dropdown pt-4 prof-view">
+            <button class="btn btn-dark border border-light dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrar Asesorias
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">Crear Asesoria</a></li>
+                <li><a class="dropdown-item" href="#">Lista Asesorias</a></li>
+            </ul>
+        </div>
+
+        <div class="dropdown pt-4 client-view">
+            <button class="btn btn-dark border border-light dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrar Asistentes
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">Ingresar Asistentes</a></li>
+                <li><a class="dropdown-item" href="#">Listar Asistentes</a></li>
+            </ul>
+        </div>
+
+        <div class="dropdown pt-4 admin-view">
+            <button class="btn btn-dark border border-light dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrar Pagos
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" th:href="@{/pagos/crear}">Ingresar Pago</a></li>
+                <li><a class="dropdown-item" th:href="@{/pagos/listar}">Listar Pagos</a></li>
+            </ul>
+        </div>
+
+        <div class="dropdown pt-4 prof-view">
+            <button class="btn btn-dark border border-light dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrar Visitas
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" th:href="@{/visitas/crear}">Ingresar Visita</a></li>
+                <li><a class="dropdown-item" th:href="@{/visitas/listar}">Listar Visitas</a></li>
+            </ul>
+        </div>
+
+        <div class="dropdown pt-4 admin-view">
+            <button class="btn btn-dark border border-light dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrar Chequeos
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">Ingresar Chequeo</a></li>
+                <li><a class="dropdown-item" href="#">Listar Chequeos</a></li>
+            </ul>
+        </div>
+
+        <div class="dropdown pt-4 client-view">
+            <button class="btn btn-dark border border-light dropdown-toggle col-8" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrar Accidentes
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">Ingresar Accidente</a></li>
+                <li><a class="dropdown-item" href="#">Listar Accidentes</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<header th:fragment="mainHeader" class="container-fluid d-flex align-items-center">
+    <div class="container-fluid title-container text-center d-flex justify-content-center">
+        <h1 class="display-1 titulo-principal" style="opacity: 75%">Bienvenidos</h1>
+    </div>
+</header>
+
+<div th:fragment="services" class="container-fluid color-container py-3"
+     style="background: rgb(204,167,118);
+background: radial-gradient(circle, rgba(204,167,118,1) 40%, rgba(0,0,0,1) 70%);"
+
+>
+    <div
+            class="container text-center pt-3 d-flex justify-content-center py-3 border border-black  rounded"
+            id="principal-container"
+    >
+
+        <div class="card-container container row rows-col-4 align-items-center ">
+            <div class="container presentation-card card-1 col col-sm-12 col-lg-6 col-xl-4 py-2">
+                <p class="display-5 text-center fs-4">¿Quíenes somos?</p>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit arcu ut ornare dignissim. In eget sem quis felis volutpat mollis nec in leo. In ut eros ligula.
+                </p>
+                <div class="container icon-container  fs-1">
+                    <i class="bi bi-twitter"></i>
+                    <i class="bi bi-linkedin"></i>
+                </div>
+
+            </div>
+            <div class="container presentation-card card-2 col  col-sm-12 col-lg-6 col-xl-4 py-2">
+                <p class="display-5 text-center fs-4">Nuestra Misión</p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit arcu ut ornare dignissim. In eget sem quis felis volutpat mollis nec in leo. In ut eros ligula.
+                </p>
+                <div class="container icon-container fs-1">
+                    <i class="bi bi-person-workspace"></i>
+                </div>
+            </div>
+            <div class="container presentation-card card-3 col col-sm-12 col-lg-6 col-xl-4 py-2">
+                <p class="display-5 text-center fs-4">Plan de Pagos</p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit arcu ut ornare dignissim. In eget sem quis felis volutpat mollis nec in leo. In ut eros ligula.
+                </p>
+                <div class="container icon-container fs-1">
+                    <i class="bi bi-paypal"></i>
+                    <i class="bi bi-credit-card-2-back"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer th:fragment="footer" class="container-fluid position-relative text-center my-auto border-top border-light">
+    <p>Abpro Modulo 6 - Grupo 3</p>
+    <p>
+        Integrantes: Gabriel Muñoz - Juan Romero - Fabian Ugalde - Marcelo Aceituno
+    </p>
+</footer>
+
+<div th:fragment="mainContact"
+        class="container-fluid contacto"
+>
+    <div class="container form-container  d-flex flex-wrap justify-content-around align-items-center">
+        <div class ="col-sm-12 col-xl-4 text-center">
+            <h1 class="display-3 titulo-contacto">
+                ¡Llena nuestro formulario!
+            </h1>
+        </div>
+
+        <div class ="col-sm-6 col-xl-4 justify-content-center">
+            <form
+                    action="contacto" method="post"
+                    class="formulario  justify-content-center fw-bold"
+            >
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre completo</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Ingrese su nombre"
+                            required
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electronico</label>
+                    <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Ingrese su email"
+                            required
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje</label>
+                    <textarea
+                            class="form-control"
+                            name="mensaje"
+                            id="mensaje"
+                            rows="5"
+                            placeholder="Ingrese su mensaje"
+                            required
+                    ></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark col-4 align-self-center border border-light">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div th:fragment="crearCap"
+        class="container-fluid pt-3 crear-capacitacion"
+>
+
+    <div class="container form-container  d-flex flex-wrap justify-content-around align-items-center">
+        <div class ="col-sm-12 col-xl-4 text-center">
+            <h1 class="display-3 mb-3 text-center titulo-crear-capacitacion">
+                Ingresar Capacitacion
+            </h1>
+        </div>
+        <div class ="col-sm-6 col-xl-4 justify-content-center">
+
+            <form
+                    th:action="@{/capacitacion/crear}" method="post"
+                    class="formulario row col-4 justify-content-center fw-bold"
+            >
+
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            name="nombre"
+                            placeholder="Ingrese nombre/titulo"
+                            required
+                    />
+                </div>
+                <div class="mb-3 ">
+                    <label for="detalle" class="form-label">Detalle</label>
+                    <textarea
+                            class="form-control"
+                            name="detalle"
+                            rows="5"
+                            placeholder="Ingrese detalles"
+                            required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-dark col-8 align-self-center border border-light">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<form th:fragment="formCap"
+        action="crear" method="post"
+        class="formulario row col-4 justify-content-center fw-bold"
+>
+
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+                type="text"
+                class="form-control"
+                name="nombre"
+                placeholder="Ingrese nombre/titulo"
+                required
+        />
+    </div>
+    <div class="mb-3 ">
+        <label for="detalle" class="form-label">Detalle</label>
+        <textarea
+                class="form-control"
+                id="detalle"
+                name="detalle"
+                rows="5"
+                placeholder="Ingrese detalles"
+                required
+        ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-dark col-8 align-self-center border border-light">Enviar</button>
+</form>
+
+<div th:fragment="loginMain"
+        class="container-fluid pt-5 login-container"
+        id="principal-container"
+
+>
+    <div class="alert alert-success text-center" role="alert" th:if="${param.logout}">
+        Sesion cerrada con exito!
+    </div>
+
+    <div class="container  form-login-container col-sm-8 col-lg-6 col-xs-12 d-flex justify-content-center align-items-start">
+        <form
+                th:action="@{/login}" method="post"
+                class="formulario form-login col-7 border border-light p-3 bg-dark rounded"
+        >
+            <div class="mb-3">
+                <label for="username" class="form-label fw-bold">Usuario</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="username"
+                        name="username"
+                        placeholder="Nombre de usuario"
+                        required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label fw-bold">Contraseña</label>
+                <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Ingrese su contraseña"
+                        required
+                />
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark  col-4 align-self-center border border-light">Login</button>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+
+<div th:fragment="listarCap"
+        class="container-fluid py-3 lista-capacitaciones"
+        id="principal-container"
+>
+    <div class="table-container container col-8 justify-content-center px-5 pt-5 ">
+        <table class="table table-striped table-dark table-hover text-center" id="tabla-cap"
+               style="opacity: 75%"
+        >
+            <thead>
+            <tr>
+
+                <th scope="col">#Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Detalle</th>
+
+
+            </tr>
+            </thead>
+            <tbody class="table-group-divider table-secondary">
+
+
+            <tr th:each="cap : ${listado}">
+                <td th:text="${cap.id}">ID</td>
+                <td th:text="${cap.nombre}">Nombre</td>
+                <td th:text="${cap.detalle}">Detalle</td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:fragment="crearUser"
+        class="container-fluid pt-3 crear-usuario"
+>
+
+    <div class="container form-container  d-flex flex-xs-column flex-sm-row flex-wrap justify-content-around align-items-center pb-5">
+        <div class ="col-sm-12 col-xl-6 d-flex justify-content-center">
+            <h1 class="display-3 mb-3 text-center titulo-crear-usuario">
+                Registrar Nuevo Usuario
+            </h1>
+        </div>
+        <div class ="col-sm-8 col-xl-6 d-flex justify-content-center">
+
+            <form
+                    th:action="@{/usuarios/crear}" method="post"
+                    class="formulario row col-8 justify-content-center fw-bold"
+            >
+                <div class="mb-3">
+                    <label for="nombre" class="form-label col">Nombre</label>
+                    <input
+                            type="text"
+                            class="form-control col inputNombre"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Ingrese nombre/titulo"
+                            required
+                    />
+                </div>
+                    <div class="mb-3 ">
+                        <label for="pw">Contraseña</label>
+                        <input type="password" class="form-control" id="pw" name="pw" placeholder="Contraseña" required>
+                    </div>
+
+                <div class="mb-3 ">
+                    <label for="email">correo</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="su@correo.com" required>
+                </div>
+
+
+                <label for="TipoUsuario">Tipo de Usuario</label>
+                <div class="btn-group mb-3" name="TipoUsuario" role="group" data-toggle="buttons" aria-label="Basic radio toggle button group">
+                    <input type="radio" value="CLIENTE" class="btn-check" id="Cliente" name="tipo" autocomplete="off" required>
+                    <label class="btn btn-outline-light btn-dark btn-tipo" for="Cliente">Cliente</label>
+                    <input type="radio" value="PROFESIONAL" class="btn-check" id="Profesional" name="tipo" autocomplete="off">
+                    <label class="btn btn-outline-light btn-dark btn-tipo" for="Profesional">Profesional</label>
+
+                    <input type="radio" value="ADMINISTRATIVO" class="btn-check" id="Administrativo" name="tipo" autocomplete="off">
+                    <label class="btn btn-outline-light btn-dark btn-tipo" for="Administrativo">Administrativo</label>
+                </div>
+
+                <input type="hidden" id="TipoUsuario" name="TipoUsuario">
+
+                <div class="mb-3 opcional opt-rut">
+                    <label for="rut" class="form-label col">Rut</label>
+                    <input
+                            type="text"
+                            class="form-control col extra-field1 "
+                            id="rut"
+                            name="rut"
+                            placeholder="Ingrese numero de Rut"
+
+                    />
+                </div>
+
+                <div class="mb-3 opcional opt-titulo">
+                    <label for="titulo" class="form-label col">Titulo</label>
+                    <input
+                            type="text"
+                            class="form-control col extra-field2 "
+                            id="titulo"
+                            name="titulo"
+                            placeholder="Ingrese titulo"
+
+                    />
+                </div>
+
+                <div class="mb-3 opcional opt-area">
+                    <label for="area" class="form-label col">Area</label>
+                    <input
+                            type="text"
+                            class="form-control extra-field3 col"
+                            id="area"
+                            name="area"
+                            placeholder="Ingrese Area de trabajo"
+
+                    />
+                </div>
+
+
+                <button type="submit" class="btn btn-dark btn-enviar-form col-4 align-self-center border border-light">Enviar</button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<div th:fragment="listarUser"
+        class="container-fluid py-3 lista-usuarios"
+        id="principal-container"
+>
+    <div class="table-container container col-8 justify-content-center px-5 pt-5 ">
+        <table class="table table-striped table-dark table-hover text-center" id="tabla-cap"
+               style="opacity: 75%"
+        >
+            <thead>
+            <tr>
+
+                <th scope="col">#Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col"> Acciones</th>
+
+
+            </tr>
+            </thead>
+            <tbody class="table-group-divider table-secondary">
+
+            <tr th:each="user : ${listado}">
+                <td th:text="${user.id}">ID</td>
+                <td th:text="${user.username}">Nombre</td>
+                <td th:text="${user.email}">Email</td>
+                <td>
+                    <a href="#"
+                       th:data-user-id="${user.id}"
+                       th:data-userNombre="${user.username}"
+                       class="navbar-brand edit-user-btn"
+                       data-bs-toggle="modal"
+                       data-bs-target="#modalUserForm">
+                        <i class="bi bi-pencil-square fs-3"></i>
+                    </a>
+                    <a href="#"
+                       th:data-user-id="${user.id}"
+                       class="navbar-brand delete-user-btn"
+                       data-bs-toggle="modal"
+                       data-bs-target="#modalDeleteForm">
+                        <i class="bi bi-trash fs-3"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:fragment="crearPago"
+     class="container-fluid pt-3 crear-capacitacion"
+>
+
+    <div class="container form-container  d-flex flex-wrap justify-content-around align-items-center">
+        <div class ="col-sm-12 col-xl-4 text-center">
+            <h1 class="display-3 mb-3 text-center titulo-crear-capacitacion">
+                Ingresar Pago
+            </h1>
+        </div>
+        <div class ="col-sm-6 col-xl-4 justify-content-center">
+
+            <form
+                    th:action="@{/pagos/crear}" method="post"
+                    class="formulario row col-4 justify-content-center fw-bold"
+            >
+
+                <div class="mb-3 ">
+                    <label for="detalle" class="form-label">Detalle</label>
+                    <textarea
+                            class="form-control"
+                            name="detalle"
+                            rows="5"
+                            placeholder="Ingrese detalles"
+                            required
+                    ></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="monto" class="form-label">Monto</label>
+                    <input
+                            type="number"
+                            class="form-control"
+                            name="monto"
+                            placeholder="Ingrese monto"
+                            required
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-dark col-8 align-self-center border border-light">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<div th:fragment="listarPago"
+     class="container-fluid py-3 lista-capacitaciones"
+     id="principal-container"
+>
+    <div class="table-container container col-8 justify-content-center px-5 pt-5 ">
+        <table class="table table-striped table-dark table-hover text-center" id="tabla-cap"
+               style="opacity: 75%"
+        >
+            <thead>
+            <tr>
+
+                <th scope="col">#Id</th>
+                <th scope="col">Detalle</th>
+                <th scope="col">Monto</th>
+
+
+
+            </tr>
+            </thead>
+            <tbody class="table-group-divider table-secondary">
+
+
+            <tr th:each="pago : ${listado}">
+                <td th:text="${pago.id}">ID</td>
+                <td th:text="${pago.detalle}">Detalle</td>
+                <td th:text="${pago.monto}">Monto</td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<form th:fragment="editarUserForm"
+        th:action="@{/usuarios/editar}" method="post"
+        class="formulario row col-8 justify-content-center fw-bold"
+>
+    <div class="mb-3">
+        <label for="nombre" class="form-label col">Nombre</label>
+        <input
+                type="text"
+                class="form-control col inputNombre"
+                id="nombre"
+                name="nombre"
+                placeholder="Ingrese nombre/titulo"
+                required
+        />
+    </div>
+    <div class="mb-3 ">
+        <label for="pw">Contraseña</label>
+        <input type="password" class="form-control" id="pw" name="pw" placeholder="Contraseña" required>
+    </div>
+
+    <div class="mb-3 ">
+        <label for="email">correo</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="su@correo.com" required>
+    </div>
+
+
+    <label for="TipoUsuario">Tipo de Usuario</label>
+    <div class="btn-group mb-3" name="TipoUsuario" role="group" data-toggle="buttons" aria-label="Basic radio toggle button group">
+        <input type="radio" value="CLIENTE" class="btn-check" id="Cliente" name="tipo" autocomplete="off" required>
+        <label class="btn btn-outline-light btn-dark btn-tipo" for="Cliente">Cliente</label>
+        <input type="radio" value="PROFESIONAL" class="btn-check" id="Profesional" name="tipo" autocomplete="off">
+        <label class="btn btn-outline-light btn-dark btn-tipo" for="Profesional">Profesional</label>
+
+        <input type="radio" value="ADMINISTRATIVO" class="btn-check" id="Administrativo" name="tipo" autocomplete="off">
+        <label class="btn btn-outline-light btn-dark btn-tipo" for="Administrativo">Administrativo</label>
+    </div>
+
+    <input type="hidden" id="TipoUsuario" name="TipoUsuario">
+
+    <div class="mb-3 opcional opt-rut">
+        <label for="rut" class="form-label col">Rut</label>
+        <input
+                type="text"
+                class="form-control col extra-field1 "
+                id="rut"
+                name="rut"
+                placeholder="Ingrese numero de Rut"
+
+        />
+    </div>
+
+    <div class="mb-3 opcional opt-titulo">
+        <label for="titulo" class="form-label col">Titulo</label>
+        <input
+                type="text"
+                class="form-control col extra-field2 "
+                id="titulo"
+                name="titulo"
+                placeholder="Ingrese titulo"
+
+        />
+    </div>
+
+    <div class="mb-3 opcional opt-area">
+        <label for="area" class="form-label col">Area</label>
+        <input
+                type="text"
+                class="form-control extra-field3 col"
+                id="area"
+                name="area"
+                placeholder="Ingrese Area de trabajo"
+
+        />
+    </div>
+
+
+    <button type="submit" class="btn btn-dark btn-enviar-form col-4 align-self-center border border-light">Enviar</button>
+
+</form>
+
+<div th:fragment="modalsEditDelete">
+
+    <div class="modal fade" style="color: white" data-bs-theme="dark" id="modalUserForm" tabindex="-1" aria-labelledby="modalUserFormLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar datos de usuario</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form
+                            th:action="@{/usuarios/editar}" method="post"
+                            class="formulario row col-10 offset-1 justify-content-center fw-bold"
+
+                    >
+                        <h4 class="hidden">ID Usuario:</h4>
+                        <h4 class="hidden" id="user-id-form-field"></h4>
+                        <input type="hidden" name="userid" id="hidden-user-id" value="">
+                        <div th:replace="components :: editarUserForm"></div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" style="color: white" data-bs-theme="dark" id="modalDeleteForm" tabindex="-1" aria-labelledby="modalDeleteFormLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">¿Seguro que desea eliminar este usuario?</h1>
+                    <!--         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+
+                    <form
+                            action="EliminarUsuario" method="post"
+                            class="formulario row justify-content-center fw-bold"
+                    >
+
+
+                        <h4 class="hidden">ID Usuario:</h4>
+                        <h4 class="hidden" id="user-id-form-field-delete"></h4>
+                        <input type="hidden" name="user-id" id="hidden-user-id-delete" value="">
+
+                        <div class="d-flex justify-content-around">
+                            <button type="submit" class="btn btn-danger btn-enviar-form col-4 align-self-center border border-light">Eliminar</button>
+                            <button type="button" class="btn btn-dark col-4 border border-light" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
+
+                </div>
+                <!--
+                <div class="modal-footer">
+
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div th:fragment="listarVisita"
+     class="container-fluid py-3 lista-capacitaciones"
+     id="principal-container"
+>
+    <div class="table-container container col-8 justify-content-center px-5 pt-5 ">
+        <table class="table table-striped table-dark table-hover text-center" id="tabla-cap"
+               style="opacity: 75%"
+        >
+            <thead>
+            <tr>
+
+                <th scope="col">#Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col"> Cliente</th>
+                <th scope="col">Detalle</th>
+                <th scope="col">Responder Checklist</th>
+
+
+
+            </tr>
+            </thead>
+            <tbody class="table-group-divider table-secondary">
+
+
+            <tr th:each="visita : ${listado}">
+                <td th:text="${visita.id}">ID</td>
+                <td th:text="${visita.name}">Nombre</td>
+                <td th:text="${visita.cliente}">Cliente</td>
+                <td th:text="${visita.detalle}">Detalle</td>
+                <td>
+                    <a href="#"
+                       th:data-user-id="${visita.id}"
+                       class="navbar-brand edit-user-btn"
+                       data-bs-toggle="modal"
+                       data-bs-target="#modalCheck">
+                        <i class="bi bi-pencil-square fs-3"></i>
+                    </a>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:fragment="crearVisita"
+     class="container-fluid pt-3 crear-capacitacion"
+>
+
+    <div class="container form-container  d-flex flex-wrap justify-content-around align-items-center">
+        <div class ="col-sm-12 col-xl-4 text-center">
+            <h1 class="display-3 mb-3 text-center titulo-crear-capacitacion">
+                Ingresar Visita
+            </h1>
+        </div>
+        <div class ="col-sm-6 col-xl-4 justify-content-center">
+
+            <form
+                    th:action="@{/visitas/crear}" method="post"
+                    class="formulario row col-4 justify-content-center fw-bold"
+            >
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            name="name"
+                            placeholder="Ingrese nombre/titulo"
+                            required
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="clienteid" class="form-label">Id de cliente</label>
+                    <input
+                            type="number"
+                            class="form-control"
+                            name="clienteid"
+                            placeholder="Ingrese id de cliente"
+                            required
+                    />
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="detalle" class="form-label">Detalle</label>
+                    <textarea
+                            class="form-control"
+                            name="detalle"
+                            rows="5"
+                            placeholder="Ingrese detalles"
+                            required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-dark col-8 align-self-center border border-light">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<div th:fragment="modalCheck">
+
+    <div class="modal fade" style="color: white" data-bs-theme="dark" id="modalCheck" tabindex="-1" aria-labelledby="modalUserFormLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Responder Checklist</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/visitas/check}" method="post" class="formulario d-flex flex-column justify-content-center">
+                        <h4 class="d-none">ID Usuario:</h4>
+                        <h4 class="d-none" id="user-id-form-field"></h4>
+                        <input type="hidden" name="userid" id="hidden-user-id" value="">
+
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="true" id="visitaExitosa" name="visitaExitosa">
+                            <label class="form-check-label" for="visitaExitosa">
+                                Visita realizada con éxito
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="true" id="cumpleQuorum" name="cumpleQuorum">
+                            <label class="form-check-label" for="cumpleQuorum">
+                                Asisten todos los trabajadores relacionados
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="true" id="superPresente" name="superPresente">
+                            <label class="form-check-label" for="superPresente">
+                                Supervisor presente durante la visita
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="true" id="cumpleProtocolo" name="cumpleProtocolo">
+                            <label class="form-check-label" for="cumpleProtocolo">
+                                Se respetaron protocolos Covid-19
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="true" id="entregaInforme" name="entregaInforme">
+                            <label class="form-check-label" for="entregaInforme">
+                                Informe resumen entregado en secretaría
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark btn-enviar-form col-4 align-self-center border border-light">Enviar</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+
+
+
+</body>
+</html>

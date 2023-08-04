@@ -1,0 +1,264 @@
+@font-face {
+  font-family: "raleway";
+  src: url("fonts/raleway/Raleway-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("fonts/raleway/Orbitron-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "BruceForever";
+  src: url("fonts/BruceForeverRegular.ttf");
+}
+
+@font-face {
+  font-family: "RocketRegular";
+  src: url("fonts/RocketRegular.otf");
+}
+
+@font-face {
+  font-family: "ZilapSleepGrunge";
+  src: url("fonts/ZilapSleepGrunge.ttf");
+}
+
+body {
+  font-family: "raleway";
+}
+
+/* Header*/
+header {
+  height: 650px;
+  background-image: url("img/inicioImg.jpeg");
+  /*   background-image: url("https://images.pexels.com/photos/1067465/pexels-photo-1067465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
+  background-size: cover;
+  background-position: 50px;
+}
+
+.th-test {
+  color: red;
+  width: 500px;
+}
+
+/* Formulario contacto*/
+
+.form-container {
+  min-height: 600px;
+}
+
+/* container principal */
+
+#principal-container {
+  background-color: rgba(204, 197, 185, 0.65);
+  font-weight: 500;
+  font-size: 1.1rem;
+  height: auto;
+  min-height: 200px;
+}
+
+.titulo-principal {
+  color: white;
+}
+
+/* contacto jsp*/
+
+.contacto {
+  background-image: url("img/contactoimg.jpeg");
+  /* 	background-image: url("https://images.pexels.com/photos/401107/pexels-photo-401107.jpeg"); */
+  background-size: cover;
+  height: auto;
+  min-height: 200px;
+}
+
+.titulo-contacto {
+  opacity: 75%;
+}
+
+.contacto .form-container {
+  color: white;
+}
+
+/* Crear Capacitacion*/
+
+.crear-capacitacion {
+  background-image: url("img/crearcapimg.jpeg");
+  /* 	background-image: url("https://images.pexels.com/photos/425183/pexels-photo-425183.jpeg"); */
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  min-height: 200px;
+  color: white;
+}
+
+.titulo-crear-capacitacion {
+  opacity: 75%;
+}
+
+/* Listar capacitaciones jsp*/
+
+#principal-container.lista-capacitaciones {
+  background-image: url("img/listcapimg.jpeg");
+  /* 	background-image: url("https://images.pexels.com/photos/356048/pexels-photo-356048.jpeg"); */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Crear Usuario*/
+
+.crear-usuario {
+  background-image: url("img/crearuserimg.jpeg");
+  /* 	background-image: url("https://images.pexels.com/photos/543351/pexels-photo-543351.jpeg"); */
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.titulo-crear-usuario {
+  color: white;
+  opacity: 75%;
+}
+
+/* Listar usuarios*/
+
+.lista-usuarios {
+  background-image: url("img/listcapimg.jpeg");
+  /* 	background-image: url("https://images.pexels.com/photos/1439164/pexels-photo-1439164.jpeg"); */
+  background-size: cover;
+  background-position: center;
+}
+
+#modalUserForm {
+  color: white;
+}
+
+/* Inicio jsp*/
+.servicios {
+  color: white;
+  height: auto;
+  min-height: 300px;
+}
+
+.servicio.card {
+  color: white;
+}
+
+/* carousel */
+
+carousel .carousel-item {
+  height: 400px;
+}
+
+.carousel-item img {
+  max-height: 500px;
+  min-height: 300px;
+  max-width: 600px;
+}
+
+/* Login jsp */
+.form-login-container {
+  min-height: 600px;
+}
+
+.formulario.form-login {
+  color: white;
+  opacity: 85%;
+}
+
+#principal-container.login-container {
+  background-image: url("img/loginpageimg.jpeg");
+  /* 	background-image: url("https://images.pexels.com/photos/8686320/pexels-photo-8686320.jpeg"); */
+  background-position: center;
+  background-size: cover;
+}
+
+/* Listar caps jsp*/
+
+.table-container {
+  min-height: 600px;
+}
+
+td {
+  max-height: 20px;
+}
+
+/* Off canvas*/
+
+.boton-menu {
+  font-size: 35px;
+  font-family: fantasy;
+}
+
+footer {
+  color: white;
+  padding: 5px;
+  padding-top: 15px;
+  background-color: black;
+  margin: 0 auto;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+input {
+  min-width: 350px;
+  max-width: 500px;
+  margin: auto;
+}
+
+textarea {
+  min-width: 350px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.separator {
+  height: 10vh;
+  width: 50vw;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .contactIcons {
+    display: none;
+  }
+}
+
+@media (width >= 1200px) {
+  .presentation-card.card-1 {
+    border-right: 1px solid black;
+    border-bottom: none;
+  }
+
+  .presentation-card.card-3 {
+    border-left: 1px solid black;
+    border-top: none;
+  }
+}
+
+@media (width > 991px) and (width < 1200px) {
+  .presentation-card.card-2,
+  .presentation-card.card-1 {
+    border-bottom: 1px solid black;
+    padding: inherit;
+  }
+
+  .presentation-card.card-3 {
+    border-bottom: 1px solid black;
+  }
+}
+
+@media (width < 991px) {
+  .presentation-card.card-1 {
+    border-bottom: 1px solid black;
+  }
+
+  .presentation-card.card-3 {
+    border-top: 1px solid black;
+  }
+}
+
+/** test */
