@@ -17,19 +17,16 @@ Contenido del Repositorio:
 - Archivo "README.txt": Este archivo que proporciona información sobre el proyecto.
 
 Instrucciones de Implementación:
-1. Clonar el repositorio del proyecto desde [https://github.com/soyunmate/AbproM5].
+1. Clonar el repositorio del proyecto desde [https://github.com/soyunmate/SprintM6-AwakeLab].
 2. Importar el proyecto en un entorno de desarrollo integrado (IDE) compatible con Java, como Eclipse o IntelliJ.
 3. Configurar las dependencias y librerías necesarias en el proyecto. Puedes utilizar Maven o Gradle para gestionar las dependencias.
 4. Configurar la conexión a la base de datos según las especificaciones del archivo SQL. Asegúrate de tener un servidor de base de datos instalado y configurado correctamente.
 5. Compilar y ejecutar la aplicación web en un servidor local, como Apache Tomcat o Jetty. Asegúrate de configurar correctamente el servidor y los archivos de despliegue.
-6. Acceder a la aplicación web a través de un navegador web compatible. Punto de entrada: /Inicio
+6. Acceder a la aplicación web a través de un navegador web compatible. Punto de entrada: /home
 
 Claves de Acceso:
 - Las claves de todos los user de prueba son "1234" revisar base de datos para contrar el username respectivo.
 - Algunos user de prueba vienen cargados en un CommandLineRunner en el archivo que arranca la appSpring
-
-Evidencia de Pruebas:
-Adjuntamos cuatro capturas de pantalla en la carpeta "docs" que demuestran el funcionamiento exitoso del proyecto en un entorno local. Las capturas de pantalla incluyen ejemplos de diferentes funcionalidades, como la creación de usuarios, la edición de datos, el registro de capacitaciones y la visualización de reportes.
 
 
 ¡Gracias por revisar nuestro proyecto! Si tiene alguna pregunta o necesita más información, no dude en ponerse en contacto con nuestro equipo.
